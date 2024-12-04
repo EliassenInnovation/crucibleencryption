@@ -7,8 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class JSONHelper
-{
+public class JSONHelper {
     public static final String ENCRYPTED_PASSWORD = "encryptedPassword";
     public static final String DECRYPTED_PASSWORD = "decryptedPassword";
     public static final String USERNAME = "username";
@@ -18,29 +17,19 @@ public class JSONHelper
     public static final String USERS_JSON_PATH = "users json path";
     public static final String USER_NOT_FOUND = "user not found";
 
-    public JSONObject getJSONFileContent(String jsonPath)
-    {
+    public JSONObject getJSONFileContent(String jsonPath) {
         String jsonContent = null;
         JSONObject JSON;
-        try
-        {
-            FileInputStream fish = new FileInputStream(jsonPath);
-
+        try(FileInputStream fish = new FileInputStream(jsonPath)) {
             jsonContent = new String(fish.readAllBytes());
-        }
-        catch (FileNotFoundException f)
-        {
+        } catch (FileNotFoundException f) {
             InputStream in = this.getClass().getClassLoader().getResourceAsStream(jsonPath);
-            try
-            {
+            try {
                 jsonContent = new String(in.readAllBytes());
-            } catch (IOException e)
-            {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
@@ -50,8 +39,7 @@ public class JSONHelper
         return JSON;
     }
 
-    public static String getValueFromJson(String key, String jsonPath)
-    {
+    public static String getValueFromJson(String key, String jsonPath) {
         JSONObject jsonFile = new JSONHelper().getJSONFileContent(jsonPath);
         String value = jsonFile.getString(key);
 

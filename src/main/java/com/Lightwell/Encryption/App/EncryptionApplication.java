@@ -9,15 +9,12 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class EncryptionApplication extends JFrame
-{
-    public static void main (String[] args)
-    {
+public class EncryptionApplication extends JFrame {
+    public static void main(String[] args) {
         EncryptionApplication app = new EncryptionApplication();
     }
 
-    public EncryptionApplication()
-    {
+    public EncryptionApplication() {
         setTitle("Encryption App");
 
         JPanel panel = new JPanel();
@@ -30,11 +27,9 @@ public class EncryptionApplication extends JFrame
         outputField.setEnabled(false);
 
         JButton encryptButton = new JButton("encrypt");
-        encryptButton.addActionListener(new ActionListener()
-        {
+        encryptButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 String inputValue = inputField.getText();
                 String encryptedValue = EncryptionHelper.encryptString(inputValue);
 
@@ -43,11 +38,9 @@ public class EncryptionApplication extends JFrame
         });
 
         JButton decryptButton = new JButton("decrypt");
-        decryptButton.addActionListener(new ActionListener()
-        {
+        decryptButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 String inputValue = inputField.getText();
                 String decryptedValue = EncryptionHelper.decryptString(inputValue);
 
@@ -56,25 +49,21 @@ public class EncryptionApplication extends JFrame
         });
 
         JButton clearButton = new JButton("clear");
-        clearButton.addActionListener(new ActionListener()
-        {
+        clearButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 outputField.setText("");
                 inputField.setText("");
             }
         });
 
         JButton copyOutputButton = new JButton("copy output");
-        copyOutputButton.addActionListener(new ActionListener()
-        {
+        copyOutputButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                StringSelection stringSelection = new StringSelection (outputField.getText());
-                Clipboard clpbrd = Toolkit.getDefaultToolkit ().getSystemClipboard ();
-                clpbrd.setContents (stringSelection, null);
+            public void actionPerformed(ActionEvent e) {
+                StringSelection stringSelection = new StringSelection(outputField.getText());
+                Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
+                clpbrd.setContents(stringSelection, null);
             }
         });
 
@@ -91,7 +80,7 @@ public class EncryptionApplication extends JFrame
         pack();
         setSize(300, 200);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
         setResizable(false);
     }
