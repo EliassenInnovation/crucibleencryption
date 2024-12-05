@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- Group ID should reflect your GitHub organization or new group name -->
-    <groupId>com.Lightwell.Encryption</groupId>
+    <groupId>com.lightwell.encryption</groupId>
     <artifactId>lightwellencryption</artifactId>
     <version>0.0.7</version>
     <description>Lightwell's encryption library</description>
